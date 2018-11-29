@@ -19,8 +19,8 @@ function mapStateToProps(state, ownProps) {
 
 function mapDispatchToProps(dispatch, ownProps) {
   return {
-    addPipeline: function(pipeline, dataset, values, schema) {
-      dispatch(addPipeline(pipeline, dataset, values, schema));
+    addPipeline: function(pipeline, dataset, schema) {
+      dispatch(addPipeline(pipeline, dataset, schema));
     }
   };
 }
@@ -66,8 +66,7 @@ var PipelineModal = createReactClass({
   done: function(save) {
     var state = this.state;
     if (save && state.error === null) {
-      this.props.addPipeline(state.pipeline, state.dataset,
-        state.values, state.schema);
+      this.props.addPipeline(state.pipeline, state.dataset, state.schema);
     }
 
     this.setState(this.getInitialState());
