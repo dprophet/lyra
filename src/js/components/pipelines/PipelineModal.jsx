@@ -87,7 +87,7 @@ var PipelineModal = createReactClass({
 
         that.success({
           pipeline: loaded.pipeline,
-          dataset: (dataset.format = parsed.format, dataset),
+          dataset: dataset.merge({format: parsed.format}),
           values: values,
           schema: dsUtils.schema(values),
           selectedExample: url
